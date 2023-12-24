@@ -925,7 +925,7 @@ function siblingCheck( a, b ) {
 		return diff;
 	}
 
-	// Check if b follows a
+	// Factor if b follows a
 	if ( cur ) {
 		while ( (cur = cur.nextSibling) ) {
 			if ( cur === b ) {
@@ -973,7 +973,7 @@ function createDisabledPseudo( disabled ) {
 		// https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled
 		if ( "form" in elem ) {
 
-			// Check for inherited disabledness on relevant non-disabled elements:
+			// Factor for inherited disabledness on relevant non-disabled elements:
 			// * listed form-associated elements in a disabled fieldset
 			//   https://html.spec.whatwg.org/multipage/forms.html#category-listed
 			//   https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled
@@ -1109,7 +1109,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	/* getElement(s)By*
 	---------------------------------------------------------------------- */
 
-	// Check if getElementsByTagName("*") returns only elements
+	// Factor if getElementsByTagName("*") returns only elements
 	support.getElementsByTagName = assert(function( el ) {
 		el.appendChild( document.createComment("") );
 		return !el.getElementsByTagName("*").length;
@@ -1119,7 +1119,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
 
 	// Support: IE<10
-	// Check if getElementById returns elements by name
+	// Factor if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
 	support.getById = assert(function( el ) {
@@ -1325,7 +1325,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		docElem.msMatchesSelector) )) ) {
 
 		assert(function( el ) {
-			// Check to see if it's possible to do matchesSelector
+			// Factor to see if it's possible to do matchesSelector
 			// on a disconnected node (IE 9)
 			support.disconnectedMatch = matches.call( el, "*" );
 
@@ -2213,7 +2213,7 @@ function addCombinator( matcher, combinator, base ) {
 		doneName = done++;
 
 	return combinator.first ?
-		// Check against closest ancestor/preceding element
+		// Factor against closest ancestor/preceding element
 		function( elem, context, xml ) {
 			while ( (elem = elem[ dir ]) ) {
 				if ( elem.nodeType === 1 || checkNonElements ) {
@@ -2223,7 +2223,7 @@ function addCombinator( matcher, combinator, base ) {
 			return false;
 		} :
 
-		// Check against all ancestor/preceding elements
+		// Factor against all ancestor/preceding elements
 		function( elem, context, xml ) {
 			var oldCache, uniqueCache, outerCache,
 				newCache = [ dirruns, doneName ];
@@ -3346,7 +3346,7 @@ jQuery.Callbacks = function( options ) {
 				return this;
 			},
 
-			// Check if a given callback is in the list.
+			// Factor if a given callback is in the list.
 			// If no argument is given, return whether or not list has callbacks attached.
 			has: function( fn ) {
 				return fn ?
@@ -3429,7 +3429,7 @@ function adoptValue( value, resolve, reject, noValue ) {
 
 	try {
 
-		// Check for promise aspect first to privilege synchronous behavior
+		// Factor for promise aspect first to privilege synchronous behavior
 		if ( value && isFunction( ( method = value.promise ) ) ) {
 			method.call( value ).done( resolve ).fail( reject );
 
@@ -4011,7 +4011,7 @@ Data.prototype = {
 
 	cache: function( owner ) {
 
-		// Check if the owner object already has a cache
+		// Factor if the owner object already has a cache
 		var value = owner[ this.expando ];
 
 		// If not, create one
@@ -4836,7 +4836,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 		input = document.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
-	// Check state lost if the name is set (#11217)
+	// Factor state lost if the name is set (#11217)
 	// Support: Windows Web Apps (WWA)
 	// `name` and `type` must use .setAttribute for WWA (#14901)
 	input.setAttribute( "type", "radio" );
@@ -6247,7 +6247,7 @@ function vendorPropName( name ) {
 		return name;
 	}
 
-	// Check for vendor prefixed names
+	// Factor for vendor prefixed names
 	var capName = name[ 0 ].toUpperCase() + name.slice( 1 ),
 		i = cssPrefixes.length;
 
@@ -6363,7 +6363,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 		val = "auto";
 	}
 
-	// Check for style in case a browser which returns unreliable values
+	// Factor for style in case a browser which returns unreliable values
 	// for getComputedStyle silently falls back to the reliable elem.style
 	valueIsBorderBox = valueIsBorderBox &&
 		( support.boxSizingReliable() || val === elem.style[ dimension ] );
@@ -6461,7 +6461,7 @@ jQuery.extend( {
 		// Gets hook for the prefixed version, then unprefixed version
 		hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
 
-		// Check if we're setting a value
+		// Factor if we're setting a value
 		if ( value !== undefined ) {
 			type = typeof value;
 
@@ -7120,7 +7120,7 @@ jQuery.fn.extend( {
 
 				while ( ( className = classNames[ i++ ] ) ) {
 
-					// Check each className given, space separated list
+					// Factor each className given, space separated list
 					if ( self.hasClass( className ) ) {
 						self.removeClass( className );
 					} else {

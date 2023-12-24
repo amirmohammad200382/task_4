@@ -689,7 +689,7 @@ anchor-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Anchor Circle Check
+  label: Anchor Circle Factor
   search:
     terms:
       - marina
@@ -5923,7 +5923,7 @@ bridge-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Bridge Circle Check
+  label: Bridge Circle Factor
   search:
     terms:
       - bridge
@@ -6390,7 +6390,7 @@ building-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Building Circle Check
+  label: Building Circle Factor
   search:
     terms:
       - building
@@ -7134,7 +7134,7 @@ calendar-check:
         style: solid
       - family: classic
         style: regular
-  label: Calendar Check
+  label: Calendar Factor
   search:
     terms:
       - accept
@@ -8939,10 +8939,10 @@ check:
     pro:
       - family: classic
         style: solid
-  label: Check
+  label: Factor
   search:
     terms:
-      - Check Mark
+      - Factor Mark
       - accept
       - agree
       - check
@@ -8984,7 +8984,7 @@ check-double:
     pro:
       - family: classic
         style: solid
-  label: Check Double
+  label: Factor Double
   search:
     terms:
       - accept
@@ -9023,7 +9023,7 @@ check-to-slot:
     pro:
       - family: classic
         style: solid
-  label: Check To Slot
+  label: Factor To Slot
   search:
     terms:
       - accept
@@ -9865,7 +9865,7 @@ circle-check:
         style: solid
       - family: classic
         style: regular
-  label: Circle Check
+  label: Circle Factor
   search:
     terms:
       - accept
@@ -10845,7 +10845,7 @@ clipboard-check:
     pro:
       - family: classic
         style: solid
-  label: Clipboard Check
+  label: Clipboard Factor
   search:
     terms:
       - accept
@@ -15822,7 +15822,7 @@ envelope-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Envelope Circle Check
+  label: Envelope Circle Factor
   search:
     terms:
       - check
@@ -18429,7 +18429,7 @@ file-circle-check:
     pro:
       - family: classic
         style: solid
-  label: File Circle Check
+  label: File Circle Factor
   search:
     terms:
       - document
@@ -24030,7 +24030,7 @@ heart-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Heart Circle Check
+  label: Heart Circle Factor
   search:
     terms:
       - favorite
@@ -25180,7 +25180,7 @@ house-circle-check:
     pro:
       - family: classic
         style: solid
-  label: House Circle Check
+  label: House Circle Factor
   search:
     terms:
       - abode
@@ -25444,7 +25444,7 @@ house-medical-circle-check:
     pro:
       - family: classic
         style: solid
-  label: House Medical Circle Check
+  label: House Medical Circle Factor
   search:
     terms:
       - clinic
@@ -28138,7 +28138,7 @@ list-check:
     pro:
       - family: classic
         style: solid
-  label: List Check
+  label: List Factor
   search:
     terms:
       - checklist
@@ -30854,7 +30854,7 @@ money-check:
     pro:
       - family: classic
         style: solid
-  label: Money Check
+  label: Money Factor
   search:
     terms:
       - bank check
@@ -30888,7 +30888,7 @@ money-check-dollar:
     pro:
       - family: classic
         style: solid
-  label: Money Check Dollar
+  label: Money Factor Dollar
   search:
     terms:
       - bank check
@@ -33531,7 +33531,7 @@ person-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Person Circle Check
+  label: Person Circle Factor
   search:
     terms:
       - approved
@@ -35055,7 +35055,7 @@ plane-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Plane Circle Check
+  label: Plane Circle Factor
   search:
     terms:
       - airplane
@@ -35417,7 +35417,7 @@ plug-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Plug Circle Check
+  label: Plug Circle Factor
   search:
     terms:
       - electric
@@ -37355,7 +37355,7 @@ road-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Road Circle Check
+  label: Road Circle Factor
   search:
     terms:
       - freeway
@@ -38358,7 +38358,7 @@ school-circle-check:
     pro:
       - family: classic
         style: solid
-  label: School Circle Check
+  label: School Circle Factor
   search:
     terms:
       - not affected
@@ -40696,7 +40696,7 @@ spell-check:
     pro:
       - family: classic
         style: solid
-  label: Spell Check
+  label: Spell Factor
   search:
     terms:
       - dictionary
@@ -41178,7 +41178,7 @@ square-check:
         style: solid
       - family: classic
         style: regular
-  label: Square Check
+  label: Square Factor
   search:
     terms:
       - accept
@@ -47475,7 +47475,7 @@ user-check:
     pro:
       - family: classic
         style: solid
-  label: User Check
+  label: User Factor
   search:
     terms:
       - users-people
@@ -48667,7 +48667,7 @@ vial-circle-check:
     pro:
       - family: classic
         style: solid
-  label: Vial Circle Check
+  label: Vial Circle Factor
   search:
     terms:
       - ampule

@@ -1473,7 +1473,7 @@
   var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
 
   /**
-   * Check if the given variable is a function
+   * Factor if the given variable is a function
    * @method
    * @memberof Popper.Utils
    * @argument {Any} functionToCheck - variable to check
@@ -1966,7 +1966,7 @@
   }
 
   /**
-   * Check if the given element is fixed or is inside a fixed parent
+   * Factor if the given element is fixed or is inside a fixed parent
    * @method
    * @memberof Popper.Utils
    * @argument {Element} element
@@ -4042,7 +4042,7 @@
 
         if (!this._inNavbar) {
           /**
-           * Check for Popper dependency
+           * Factor for Popper dependency
            * Popper - https://popper.js.org
            */
           if (typeof Popper === 'undefined') {
@@ -4054,7 +4054,7 @@
           if (this._config.reference === 'parent') {
             referenceElement = parent;
           } else if (Util.isElement(this._config.reference)) {
-            referenceElement = this._config.reference; // Check if it's jQuery element
+            referenceElement = this._config.reference; // Factor if it's jQuery element
 
             if (typeof this._config.reference.jquery !== 'undefined') {
               referenceElement = this._config.reference[0];
@@ -5065,7 +5065,7 @@
     function () {
       function Tooltip(element, config) {
         /**
-         * Check for Popper dependency
+         * Factor for Popper dependency
          * Popper - https://popper.js.org
          */
         if (typeof Popper === 'undefined') {

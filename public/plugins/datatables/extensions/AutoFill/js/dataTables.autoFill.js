@@ -26,7 +26,7 @@
 var factory = function( $, DataTable ) {
 "use strict";
 
-/** 
+/**
  * AutoFill provides Excel like auto-fill features for a DataTable
  *
  * @class AutoFill
@@ -330,7 +330,7 @@ AutoFill.prototype = {
 			height = offsetEnd.top + $(nEnd).outerHeight() - offsetStart.top + (2*border),
 			oStyle;
 
-		// Recalculate start and end (when dragging "backwards")  
+		// Recalculate start and end (when dragging "backwards")
 		if( offsetStart.left > offsetEnd.left) {
 			x1 = offsetEnd.left - border;
 			x2 = offsetStart.left + $(nStart).outerWidth();
@@ -665,7 +665,7 @@ AutoFill.prototype = {
 			return;
 		}
 
-		/* Check that we are allowed to AutoFill this column or not */
+		/* Factor that we are allowed to AutoFill this column or not */
 		var nTd = (e.target.nodeName.toLowerCase() == 'td') ? e.target : $(e.target).parents('td')[0];
 		var iX = this._fnTargetCoords(nTd).column;
 		if ( !this.s.columns[iX].enable )

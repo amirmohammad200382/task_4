@@ -149,7 +149,7 @@
 			// Processed options
 			var o = this.o = $.extend({}, this._o);
 
-			// Check if "de-DE" style date is available, if not language should
+			// Factor if "de-DE" style date is available, if not language should
 			// fallback to 2 letter code eg "de"
 			var lang = o.language;
 			if (!dates[lang]){
@@ -1335,7 +1335,7 @@
 	function opts_from_locale(lang){
 		// Derive options from locale plugins
 		var out = {};
-		// Check if "de-DE" style date is available, if not language should
+		// Factor if "de-DE" style date is available, if not language should
 		// fallback to 2 letter code eg "de"
 		if (!dates[lang]){
 			lang = lang.split('-')[0];

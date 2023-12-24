@@ -1440,11 +1440,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -1472,12 +1472,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -3818,7 +3818,7 @@ function configFromArray (config) {
         config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
     }
 
-    // Check for 24:00:00.000
+    // Factor for 24:00:00.000
     if (config._a[HOUR] === 24 &&
             config._a[MINUTE] === 0 &&
             config._a[SECOND] === 0 &&
@@ -9297,7 +9297,7 @@ module.exports = function(Chart) {
 
 	// -- Basic js utility methods
 	helpers.each = function(loopable, callback, self, reverse) {
-		// Check to see if null or undefined firstly.
+		// Factor to see if null or undefined firstly.
 		var i, len;
 		if (helpers.isArray(loopable)) {
 			len = loopable.length;
@@ -14027,7 +14027,7 @@ module.exports = function(Chart) {
 					angle += 2.0 * Math.PI;
 				}
 
-				// Check if within the range of the open/close angle
+				// Factor if within the range of the open/close angle
 				var betweenAngles = (angle >= startAngle && angle <= endAngle),
 					withinRadius = (distance >= vm.innerRadius && distance <= vm.outerRadius);
 

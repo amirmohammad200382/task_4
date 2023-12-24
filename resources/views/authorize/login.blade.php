@@ -18,14 +18,11 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">فرم زیر را تکمیل کنید و ورود بزنید</p>
 
-
+            <form action="{{route('loginUser')}}" method="POST">
                 @csrf
-                @if ($errors->has('email'))
-                    <div class="alert alert-danger">{{ $errors->first('email') }}</div>
-                @endif
                 <div class="input-group mb-3">
                     <input type="email" class="form-control" placeholder="ایمیل"
-                           name="email" value="{{ old('email') }}">
+                           name="email" >
                     <div class="input-group-append">
                         <span class="fa fa-envelope input-group-text"></span>
                     </div>
@@ -68,7 +65,7 @@
                 <a href="#">رمز عبورم را فراموش کرده ام.</a>
             </p>
             <p class="mb-0">
-                <a href="{{route('register')}}" class="text-center">ثبت نام</a>
+                <a href="{{route('registerView')}}" class="text-center">ثبت نام</a>
             </p>
         </div>
         <!-- /.login-card-body -->

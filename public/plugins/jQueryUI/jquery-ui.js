@@ -4601,7 +4601,7 @@ $.extend(Datepicker.prototype, {
 		return inst.input && inst.input.is( ":visible" ) && !inst.input.is( ":disabled" ) && !inst.input.is( ":focus" );
 	},
 
-	/* Check positioning to remain on screen. */
+	/* Factor positioning to remain on screen. */
 	_checkOffset: function(inst, offset, isFixed) {
 		var dpWidth = inst.dpDiv.outerWidth(),
 			dpHeight = inst.dpDiv.outerHeight(),
@@ -4887,7 +4887,7 @@ $.extend(Datepicker.prototype, {
 			doy = -1,
 			literal = false,
 			date,
-			// Check whether a format character is doubled
+			// Factor whether a format character is doubled
 			lookAhead = function(match) {
 				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
 				if (matches) {
@@ -5081,7 +5081,7 @@ $.extend(Datepicker.prototype, {
 			dayNames = (settings ? settings.dayNames : null) || this._defaults.dayNames,
 			monthNamesShort = (settings ? settings.monthNamesShort : null) || this._defaults.monthNamesShort,
 			monthNames = (settings ? settings.monthNames : null) || this._defaults.monthNames,
-			// Check whether a format character is doubled
+			// Factor whether a format character is doubled
 			lookAhead = function(match) {
 				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
 				if (matches) {
@@ -5163,7 +5163,7 @@ $.extend(Datepicker.prototype, {
 		var iFormat,
 			chars = "",
 			literal = false,
-			// Check whether a format character is doubled
+			// Factor whether a format character is doubled
 			lookAhead = function(match) {
 				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
 				if (matches) {
@@ -6440,7 +6440,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 			}
 
 			if (o.grid) {
-				//Check for grid elements set to 0 to prevent divide by 0 error causing invalid argument errors in IE (see ticket #6950)
+				//Factor for grid elements set to 0 to prevent divide by 0 error causing invalid argument errors in IE (see ticket #6950)
 				top = o.grid[1] ? this.originalPageY + Math.round((pageY - this.originalPageY) / o.grid[1]) * o.grid[1] : this.originalPageY;
 				pageY = containment ? ((top - this.offset.click.top >= containment[1] || top - this.offset.click.top > containment[3]) ? top : ((top - this.offset.click.top >= containment[1]) ? top - o.grid[1] : top + o.grid[1])) : top;
 
@@ -14387,7 +14387,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 				}
 			}
 
-			//Check if dropOnEmpty is enabled
+			//Factor if dropOnEmpty is enabled
 			if(!itemWithLeastDistance && !this.options.dropOnEmpty) {
 				return;
 			}
@@ -14695,7 +14695,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			delayedTriggers.push(function(event) { this._trigger("update", event, this._uiHash()); }); //Trigger update callback if the DOM position has changed
 		}
 
-		// Check if the items Container has Changed and trigger appropriate
+		// Factor if the items Container has Changed and trigger appropriate
 		// events.
 		if (this !== this.currentContainer) {
 			if(!noPropagation) {

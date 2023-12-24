@@ -10,25 +10,26 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{--{{route('editProfile')}}--}}" class="nav-link">
+                                <i class="fas fa-user-edit"></i>
+                                <p>ویرایش پروفایل</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{--{{route('editProfPass')}}--}}" class="nav-link">
+                                <i class="fas fa-lock"></i>
+                                <p>تغییر رمز عبور</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{--{{route('editProfImage')}}--}}" class="nav-link">
+                                <i class="fas fa-image"></i>
+                                <p>تغییر عکس پروفایل</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('logoutUser')}}" class="nav-link">
 
-                            <i class="fas fa-user-edit"></i>
-                            <p>ویرایش پروفایل</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <!--<a href="" class="nav-link">-->
-                            <i class="fas fa-lock"></i>
-                            <p>تغییر رمز عبور</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <!--<a href="" class="nav-link">-->
-                            <i class="fas fa-image"></i>
-                            <p>تغییر عکس پروفایل</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <p>خروج</p>
                             </a>
@@ -42,8 +43,7 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link active">
                         <i class="fas fa-tachometer-alt nav-icon"></i>
@@ -71,13 +71,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('users.create')}}" class="nav-link">
                                 <i class="fas fa-plus nav-icon"></i>
                                 <p> کاربر جدید</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('users.index')}}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>لیست کاربران</p>
                             </a>
@@ -94,13 +94,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('check.create')}}" class="nav-link">
                                 <i class="fas fa-plus nav-icon"></i>
                                 <p> فاکتور جدید</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="nav-link">
+                            <a href="{{route('check.index')}}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>لیست فاکتورها</p>
                             </a>
@@ -117,13 +117,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="nav-link">
+                            <a href="{{route('products.create')}}" class="nav-link">
                                 <i class="fas fa-plus nav-icon"></i>
                                 <p> محصول جدید</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="nav-link">
+                            <a href="{{route('products.index')}}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>لیست محصولات</p>
                             </a>
@@ -140,13 +140,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('orders.create')}}" class="nav-link">
                                 <i class="fas fa-plus nav-icon"></i>
                                 <p> سفارش جدید</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('orders.index')}}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>لیست سفارشات</p>
                             </a>
@@ -163,25 +163,22 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{--{{route('addOpportunity')}}--}}" class="nav-link">
                                 <i class="fas fa-plus nav-icon"></i>
                                 <p>ثبت فرصت جدید</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{--{{route('opportunities_data')}}--}}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p> لیست فرصتها</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
             </ul>
-
         </nav>
 
         <!-- /.sidebar-menu -->
-
     </div>
 </div>

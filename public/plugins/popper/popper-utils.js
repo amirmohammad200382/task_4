@@ -433,7 +433,7 @@ function getViewportOffsetRectRelativeToArtbitraryNode(element, excludeScroll = 
 }
 
 /**
- * Check if the given element is fixed or is inside a fixed parent
+ * Factor if the given element is fixed or is inside a fixed parent
  * @method
  * @memberof Popper.Utils
  * @argument {Element} element
@@ -807,7 +807,7 @@ function getSupportedPropertyName(property) {
 }
 
 /**
- * Check if the given variable is a function
+ * Factor if the given variable is a function
  * @method
  * @memberof Popper.Utils
  * @argument {Any} functionToCheck - variable to check

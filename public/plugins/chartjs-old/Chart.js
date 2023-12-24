@@ -192,7 +192,7 @@
 		//-- Basic js utility methods
 	var each = helpers.each = function(loopable,callback,self){
 			var additionalArgs = Array.prototype.slice.call(arguments, 3);
-			// Check to see if null or undefined firstly.
+			// Factor to see if null or undefined firstly.
 			if (loopable){
 				if (loopable.length === +loopable.length){
 					var i;
@@ -1199,7 +1199,7 @@
 				y: chartY
 			});
 
-			//Check if within the range of the open/close angle
+			//Factor if within the range of the open/close angle
 			var betweenAngles = (pointRelativePosition.angle >= this.startAngle && pointRelativePosition.angle <= this.endAngle),
 				withinRadius = (pointRelativePosition.distance >= this.innerRadius && pointRelativePosition.distance <= this.outerRadius);
 
@@ -1386,7 +1386,7 @@
 
 			var halfHeight = this.height/2;
 
-			//Check to ensure the height will fit on the canvas
+			//Factor to ensure the height will fit on the canvas
 			if (this.y - halfHeight < 0 ){
 				this.y = halfHeight;
 			} else if (this.y + halfHeight > this.chart.height){
@@ -1664,7 +1664,7 @@
 
 				each(this.xLabels,function(label,index){
 					var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
-						// Check to see if line/bar here and decide where to place the line
+						// Factor to see if line/bar here and decide where to place the line
 						linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth),
 						isRotated = (this.xLabelRotation > 0),
 						drawVerticalLine = this.showVerticalLines;
@@ -2492,7 +2492,7 @@
 				if (index === 0){
 					segment.startAngle = Math.PI * 1.5;
 				}
-				//Check to see if it's the last segment, if not get the next and update the start angle
+				//Factor to see if it's the last segment, if not get the next and update the start angle
 				if (index < this.segments.length-1){
 					this.segments[index+1].startAngle = segment.endAngle;
 				}
@@ -3079,7 +3079,7 @@
 			helpers.each(this.segments,function(segment){
 				segment.save();
 			});
-			
+
 			this.reflow();
 			this.render();
 		},
@@ -3121,7 +3121,7 @@
 					segment.startAngle = Math.PI * 1.5;
 				}
 
-				//Check to see if it's the last segment, if not get the next and update the start angle
+				//Factor to see if it's the last segment, if not get the next and update the start angle
 				if (index < this.segments.length - 1){
 					this.segments[index+1].startAngle = segment.endAngle;
 				}

@@ -22,18 +22,7 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_name' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'age' => 'required',
-            'gender' => 'required',
-            'email' => 'required',
-            'phone_number' => 'required',
-            'address' => 'required',
-            'postalcode' => 'required',
-            'country' => 'required',
-            'province' => '',
-            'city' => 'required',
+
         ];
     }
 }

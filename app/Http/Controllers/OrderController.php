@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\User;
+use App\Http\Models\Order;
+use App\Http\Models\Product;
+use App\Http\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -51,7 +51,9 @@ class OrderController extends Controller
             $product_name = 'product_' . $product->id;
             if ($request->$product_name) {
 
-                $product->orders()->save($order_id, ['count'=>$request->$product_name ,'created_at'=>date('Y-m-d H:i:s')]);
+                $product->orders()->save($order_id, [
+                    'count'=>$request->$product_name ,
+                    'created_at'=>date('Y-m-d H:i:s')]);
             }
         }
     }

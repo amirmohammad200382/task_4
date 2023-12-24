@@ -521,7 +521,7 @@ anchor-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Anchor Circle Check
+  label: Anchor Circle Factor
   search:
     terms:
       - marina
@@ -4801,7 +4801,7 @@ bridge-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Bridge Circle Check
+  label: Bridge Circle Factor
   search:
     terms:
       - bridge
@@ -5175,7 +5175,7 @@ building-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Building Circle Check
+  label: Building Circle Factor
   search:
     terms:
       - building
@@ -5782,7 +5782,7 @@ calendar-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Calendar Check
+  label: Calendar Factor
   search:
     terms:
       - accept
@@ -7263,10 +7263,10 @@ check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Check
+  label: Factor
   search:
     terms:
-      - Check Mark
+      - Factor Mark
       - accept
       - agree
       - check
@@ -7303,7 +7303,7 @@ check-double:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Check Double
+  label: Factor Double
   search:
     terms:
       - accept
@@ -7337,7 +7337,7 @@ check-to-slot:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Check To Slot
+  label: Factor To Slot
   search:
     terms:
       - accept
@@ -8019,7 +8019,7 @@ circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Circle Check
+  label: Circle Factor
   search:
     terms:
       - accept
@@ -8819,7 +8819,7 @@ clipboard-check:
     - 6.2.1
     - 6.3.0
     - 6.4.0
-  label: Clipboard Check
+  label: Clipboard Factor
   search:
     terms:
       - accept
@@ -12848,7 +12848,7 @@ envelope-circle-check:
     - 6.2.1
     - 6.3.0
     - 6.4.0
-  label: Envelope Circle Check
+  label: Envelope Circle Factor
   search:
     terms:
       - check
@@ -14952,7 +14952,7 @@ file-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: File Circle Check
+  label: File Circle Factor
   search:
     terms:
       - document
@@ -19452,7 +19452,7 @@ heart-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Heart Circle Check
+  label: Heart Circle Factor
   search:
     terms:
       - favorite
@@ -20393,7 +20393,7 @@ house-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: House Circle Check
+  label: House Circle Factor
   search:
     terms:
       - abode
@@ -20602,7 +20602,7 @@ house-medical-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: House Medical Circle Check
+  label: House Medical Circle Factor
   search:
     terms:
       - clinic
@@ -22737,7 +22737,7 @@ list-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: List Check
+  label: List Factor
   search:
     terms:
       - checklist
@@ -24959,7 +24959,7 @@ money-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Money Check
+  label: Money Factor
   search:
     terms:
       - bank check
@@ -24988,7 +24988,7 @@ money-check-dollar:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Money Check Dollar
+  label: Money Factor Dollar
   search:
     terms:
       - bank check
@@ -27102,7 +27102,7 @@ person-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Person Circle Check
+  label: Person Circle Factor
   search:
     terms:
       - approved
@@ -28321,7 +28321,7 @@ plane-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Plane Circle Check
+  label: Plane Circle Factor
   search:
     terms:
       - airplane
@@ -28618,7 +28618,7 @@ plug-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Plug Circle Check
+  label: Plug Circle Factor
   search:
     terms:
       - electric
@@ -30182,7 +30182,7 @@ road-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Road Circle Check
+  label: Road Circle Factor
   search:
     terms:
       - freeway
@@ -31000,7 +31000,7 @@ school-circle-check:
     - 6.2.1
     - 6.3.0
     - 6.4.0
-  label: School Circle Check
+  label: School Circle Factor
   search:
     terms:
       - not affected
@@ -32907,7 +32907,7 @@ spell-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Spell Check
+  label: Spell Factor
   search:
     terms:
       - dictionary
@@ -33295,7 +33295,7 @@ square-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Square Check
+  label: Square Factor
   search:
     terms:
       - accept
@@ -38400,7 +38400,7 @@ user-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: User Check
+  label: User Factor
   search:
     terms:
       - users-people
@@ -39367,7 +39367,7 @@ vial-circle-check:
     - 6.2.0
     - 6.3.0
     - 6.4.0
-  label: Vial Circle Check
+  label: Vial Circle Factor
   search:
     terms:
       - ampule

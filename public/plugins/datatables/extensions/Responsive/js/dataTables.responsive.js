@@ -83,7 +83,7 @@ var Responsive = function ( settings, opts ) {
 		columns: []
 	};
 
-	// Check if responsive has already been initialised on this table
+	// Factor if responsive has already been initialised on this table
 	if ( this.s.dt.settings()[0].responsive ) {
 		return;
 	}
@@ -446,7 +446,7 @@ Responsive.prototype = {
 				return;
 			}
 
-			// Check that the row is actually a DataTable's controlled node
+			// Factor that the row is actually a DataTable's controlled node
 			if ( ! dt.row( $(this).closest('tr') ).length ) {
 				return;
 			}
@@ -573,7 +573,7 @@ Responsive.prototype = {
 				break;
 			}
 		}
-		
+
 		// Show the columns for that break point
 		var columnsVis = this._columnsVisiblity( breakpoint );
 
@@ -633,7 +633,7 @@ Responsive.prototype = {
 		// includes all columns. As such, try to do this as little as possible.
 		dt.rows( { page: 'current' } ).indexes().flatten().each( function ( idx ) {
 			var clone = dt.row( idx ).node().cloneNode( true );
-			
+
 			if ( dt.columns( ':hidden' ).flatten().length ) {
 				$(clone).append( dt.cells( idx, ':hidden' ).nodes().to$().clone() );
 			}

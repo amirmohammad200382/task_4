@@ -1,4 +1,4 @@
-// TODO: in future try to replace most inline compability checks with polyfills for code readability 
+// TODO: in future try to replace most inline compability checks with polyfills for code readability
 
 // element.textContent polyfill.
 // Unsupporting browsers: IE8
@@ -76,7 +76,7 @@ var wysihtml5 = {
         define(factory);
 /*
     TODO: look into this properly.
-    
+
     } else if (typeof exports == "object") {
         // Node/CommonJS style for Browserify
         module.exports = factory;
@@ -395,11 +395,11 @@ var wysihtml5 = {
                     throw new Error("required module '" + moduleName + "' not supported");
                 }
             }
-            
+
             // Now run initializer
             this.initializer(this);
         },
-        
+
         fail: function(reason) {
             this.initialized = true;
             this.supported = false;
@@ -419,7 +419,7 @@ var wysihtml5 = {
             return new Error("Error in Rangy " + this.name + " module: " + msg);
         }
     };
-    
+
     function createModule(isCore, name, dependencies, initFunc) {
         var newModule = new Module(name, dependencies, function(module) {
             if (!module.initialized) {
@@ -503,7 +503,7 @@ var wysihtml5 = {
     addListener(window, "load", loadHandler);
 
     /*----------------------------------------------------------------------------------------------------------------*/
-    
+
     // DOM utility methods used by Rangy
     api.createCoreModule("DomUtil", [], function(api, module) {
         var UNDEF = "undefined";
@@ -1221,7 +1221,7 @@ var wysihtml5 = {
                 if (current) {
                     this._next = (current !== this._last) ? current.nextSibling : null;
 
-                    // Check for partially selected text nodes
+                    // Factor for partially selected text nodes
                     if (isCharacterDataNode(current) && this.clonePartiallySelectedTextNodes) {
                         if (current === this.ec) {
                             (current = current.cloneNode(true)).deleteData(this.eo, current.length - this.eo);
@@ -1479,7 +1479,7 @@ var wysihtml5 = {
             }
             range.setStartAndEnd(sc, so, ec, eo);
         }
-        
+
         function rangeToHtml(range) {
             assertRangeValid(range);
             var container = range.commonAncestorContainer.parentNode.cloneNode(false);
@@ -1554,7 +1554,7 @@ var wysihtml5 = {
                 assertNodeNotReadOnly(this.startContainer);
                 assertNodeNotReadOnly(this.endContainer);
 
-                // Check if the contents can be surrounded. Specifically, this means whether the range partially selects
+                // Factor if the contents can be surrounded. Specifically, this means whether the range partially selects
                 // no non-text nodes.
                 var iterator = new RangeIterator(this, true);
                 var boundariesInvalid = (iterator._first && (isNonTextPartiallySelected(iterator._first, this)) ||
@@ -1778,7 +1778,7 @@ var wysihtml5 = {
                 this.setStartAfter(node);
                 this.collapse(true);
             },
-            
+
             getBookmark: function(containerNode) {
                 var doc = getRangeDocument(this);
                 var preSelectionRange = api.createRange(doc);
@@ -1798,7 +1798,7 @@ var wysihtml5 = {
                     containerNode: containerNode
                 };
             },
-            
+
             moveToBookmark: function(bookmark) {
                 var containerNode = bookmark.containerNode;
                 var charIndex = 0;
@@ -1840,11 +1840,11 @@ var wysihtml5 = {
             isValid: function() {
                 return isRangeValid(this);
             },
-            
+
             inspect: function() {
                 return inspect(this);
             },
-            
+
             detach: function() {
                 // In DOM4, detach() is now a no-op.
             }
@@ -1884,7 +1884,7 @@ var wysihtml5 = {
                     so = boundary.offset;
                 }
 
-                // Check none of the range is read-only
+                // Factor none of the range is read-only
                 iterateSubtree(iterator, assertNodeNotReadOnly);
 
                 iterator.reset();
@@ -1914,7 +1914,7 @@ var wysihtml5 = {
             function setRangeStart(range, node, offset) {
                 var ec = range.endContainer, eo = range.endOffset;
                 if (node !== range.startContainer || offset !== range.startOffset) {
-                    // Check the root containers of the range and the new boundary, and also check whether the new boundary
+                    // Factor the root containers of the range and the new boundary, and also check whether the new boundary
                     // is after the current end. In either case, collapse the range to the new position
                     if (getRootContainer(node) != getRootContainer(ec) || comparePoints(node, offset, ec, eo) == 1) {
                         ec = node;
@@ -1927,7 +1927,7 @@ var wysihtml5 = {
             function setRangeEnd(range, node, offset) {
                 var sc = range.startContainer, so = range.startOffset;
                 if (node !== range.endContainer || offset !== range.endOffset) {
-                    // Check the root containers of the range and the new boundary, and also check whether the new boundary
+                    // Factor the root containers of the range and the new boundary, and also check whether the new boundary
                     // is after the current end. In either case, collapse the range to the new position
                     if (getRootContainer(node) != getRootContainer(sc) || comparePoints(node, offset, sc, so) == -1) {
                         sc = node;
@@ -1981,7 +1981,7 @@ var wysihtml5 = {
 
                     boundaryUpdater(this, sc, so, ec, eo);
                 },
-                
+
                 setBoundary: function(node, offset, isStart) {
                     this["set" + (isStart ? "Start" : "End")](node, offset);
                 },
@@ -2023,7 +2023,7 @@ var wysihtml5 = {
                     assertNodeNotReadOnly(this.startContainer);
                     assertNodeNotReadOnly(this.endContainer);
 
-                    // Check if the contents can be surrounded. Specifically, this means whether the range partially selects
+                    // Factor if the contents can be surrounded. Specifically, this means whether the range partially selects
                     // no non-text nodes.
                     var iterator = new RangeIterator(this, true);
                     var boundariesInvalid = (iterator._first && isNonTextPartiallySelected(iterator._first, this) ||
@@ -2176,7 +2176,7 @@ var wysihtml5 = {
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
-    // Wrappers for the browser's native DOM Range and/or TextRange implementation 
+    // Wrappers for the browser's native DOM Range and/or TextRange implementation
     api.createCoreModule("WrappedRange", ["DomRange"], function(api, module) {
         var WrappedRange, WrappedTextRange;
         var dom = api.dom;
@@ -2442,7 +2442,7 @@ var wysihtml5 = {
                 };
             })();
         }
-        
+
         if (api.features.implementsTextRange) {
             /*
             This is a workaround for a bug where IE returns the wrong container element from the TextRange's parentElement()
@@ -2518,7 +2518,7 @@ var wysihtml5 = {
                 var childNodeCount = containerElement.childNodes.length;
                 var end = childNodeCount;
 
-                // Check end first. Code within the loop assumes that the endth child node of the container is definitely
+                // Factor end first. Code within the loop assumes that the endth child node of the container is definitely
                 // after the range boundary.
                 var nodeIndex = end;
 
@@ -2564,11 +2564,11 @@ var wysihtml5 = {
                         For the particular case of a boundary within a text node containing rendered line breaks (within a
                         <pre> element, for example), we need a slightly complicated approach to get the boundary's offset in
                         IE. The facts:
-                        
+
                         - Each line break is represented as \r in the text node's data/nodeValue properties
                         - Each line break is represented as \r\n in the TextRange's 'text' property
                         - The 'text' property of the TextRange does not contain trailing line breaks
-                        
+
                         To get round the problem presented by the final fact above, we can use the fact that TextRange's
                         moveStart() and moveEnd() methods return the actual number of characters moved, which is not
                         necessarily the same as the number of characters it was instructed to move. The simplest approach is
@@ -2577,13 +2577,13 @@ var wysihtml5 = {
                         "move-negative-gazillion" method). However, this is extremely slow when the document is large and
                         the range is near the end of it. Clearly doing the mirror image (i.e. moving the range boundaries to
                         the end of the document) has the same problem.
-                        
+
                         Another approach that works is to use moveStart() to move the start boundary of the range up to the
                         end boundary one character at a time and incrementing a counter with the value returned by the
                         moveStart() call. However, the check for whether the start boundary has reached the end boundary is
                         expensive, so this method is slow (although unlike "move-negative-gazillion" is largely unaffected
                         by the location of the range within the document).
-                        
+
                         The approach used below is a hybrid of the two methods above. It uses the fact that a string
                         containing the TextRange's 'text' property with each \r\n converted to a single \r character cannot
                         be longer than the text of the TextRange, so the start of the range is moved that length initially
@@ -2839,7 +2839,7 @@ var wysihtml5 = {
         function getDocSelection(winParam) {
             return getWindow(winParam, "getDocSelection").document.selection;
         }
-        
+
         function winSelectionIsBackward(sel) {
             var backward = false;
             if (sel.anchorNode) {
@@ -2863,7 +2863,7 @@ var wysihtml5 = {
             api.isSelectionValid = function(winParam) {
                 var doc = getWindow(winParam, "isSelectionValid").document, nativeSel = doc.selection;
 
-                // Check whether the selection TextRange is actually contained within the correct document
+                // Factor whether the selection TextRange is actually contained within the correct document
                 return (nativeSel.type != "None" || getDocument(nativeSel.createRange().parentElement()) == doc);
             };
         } else if (implementsWinGetSelection) {
@@ -2890,7 +2890,7 @@ var wysihtml5 = {
         // Test for existence of native selection extend() method
         var selectionHasExtend = isHostMethod(testSelection, "extend");
         features.selectionHasExtend = selectionHasExtend;
-        
+
         // Test if rangeCount exists
         var selectionHasRangeCount = (typeof testSelection.rangeCount == NUMBER);
         features.selectionHasRangeCount = selectionHasRangeCount;
@@ -2924,11 +2924,11 @@ var wysihtml5 = {
                     var originalSelectionRangeCount = sel.rangeCount;
                     var selectionHasMultipleRanges = (originalSelectionRangeCount > 1);
                     var originalSelectionRanges = [];
-                    var originalSelectionBackward = winSelectionIsBackward(sel); 
+                    var originalSelectionBackward = winSelectionIsBackward(sel);
                     for (var i = 0; i < originalSelectionRangeCount; ++i) {
                         originalSelectionRanges[i] = sel.getRangeAt(i);
                     }
-                    
+
                     // Create some test elements
                     var body = getBody(document);
                     var testEl = body.appendChild( document.createElement("div") );
@@ -3201,7 +3201,7 @@ var wysihtml5 = {
         }
 
         var getSelection = function(win) {
-            // Check if the parameter is a Rangy Selection object
+            // Factor if the parameter is a Rangy Selection object
             if (win && win instanceof WrappedSelection) {
                 win.refresh();
                 return win;
@@ -3281,13 +3281,13 @@ var wysihtml5 = {
                             // issue 80.
                             this.nativeSelection.addRange(getNativeRange(range).cloneRange());
 
-                            // Check whether adding the range was successful
+                            // Factor whether adding the range was successful
                             this.rangeCount = this.nativeSelection.rangeCount;
 
                             if (this.rangeCount == previousRangeCount + 1) {
                                 // The range was added successfully
 
-                                // Check whether the range that we added to the selection is reflected in the last range extracted from
+                                // Factor whether the range that we added to the selection is reflected in the last range extracted from
                                 // the selection
                                 if (api.config.checkSelectionRanges) {
                                     var nativeRange = getSelectionRangeAt(this.nativeSelection, this.rangeCount - 1);
@@ -3335,7 +3335,7 @@ var wysihtml5 = {
                 try {
                     this.docSelection.empty();
 
-                    // Check for empty() not working (issue #24)
+                    // Factor for empty() not working (issue #24)
                     if (this.docSelection.type != "None") {
                         // Work around failure to empty a control selection by instead selecting a TextRange and then
                         // calling empty()
@@ -3454,7 +3454,7 @@ var wysihtml5 = {
 
             refreshSelection(this);
             if (checkForChanges) {
-                // Check the range count first
+                // Factor the range count first
                 var i = oldRanges.length;
                 if (i != this._ranges.length) {
                     return true;
@@ -3647,7 +3647,7 @@ var wysihtml5 = {
             } );
             return results;
         };
-        
+
         function createStartOrEndSetter(isStart) {
             return function(node, offset) {
                 var range;
@@ -3664,7 +3664,7 @@ var wysihtml5 = {
 
         selProto.setStart = createStartOrEndSetter(true);
         selProto.setEnd = createStartOrEndSetter(false);
-        
+
         // Add select() method to Range prototype. Any existing selection will be removed.
         api.rangePrototype.select = function(direction) {
             getSelection( this.getDocument() ).setSingleRange(this, direction);
@@ -3730,7 +3730,7 @@ var wysihtml5 = {
                     if (isTextRange(range)) {
                         return range;
                     } else {
-                        throw module.createError("getNativeTextRange: selection is a control selection"); 
+                        throw module.createError("getNativeTextRange: selection is a control selection");
                     }
                 } else if (this.rangeCount > 0) {
                     return api.WrappedTextRange.rangeToTextRange( this.getRangeAt(0) );
@@ -3788,7 +3788,7 @@ var wysihtml5 = {
             win = null;
         });
     });
-    
+
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
@@ -4041,7 +4041,7 @@ var wysihtml5 = {
             removeMarkers: removeMarkers
         });
     });
-    
+
 }, this);;/*
 	Base.js, version 1.1a
 	Copyright 2006-2010, Dean Edwards
@@ -4054,7 +4054,7 @@ var Base = function() {
 
 Base.extend = function(_instance, _static) { // subclass
 	var extend = Base.prototype.extend;
-	
+
 	// build the prototype
 	Base._prototyping = true;
 	var proto = new this;
@@ -4063,7 +4063,7 @@ Base.extend = function(_instance, _static) { // subclass
     // call this method from any other method to invoke that method's ancestor
   };
 	delete Base._prototyping;
-	
+
 	// create the wrapper for the constructor function
 	//var constructor = proto.constructor.valueOf(); //-dean
 	var constructor = proto.constructor;
@@ -4078,7 +4078,7 @@ Base.extend = function(_instance, _static) { // subclass
 			}
 		}
 	};
-	
+
 	// build the class interface
 	klass.ancestor = this;
 	klass.extend = this.extend;
@@ -4096,7 +4096,7 @@ Base.extend = function(_instance, _static) { // subclass
 	return klass;
 };
 
-Base.prototype = {	
+Base.prototype = {
 	extend: function(source, value) {
 		if (arguments.length > 1) { // extending with a name/value pair
 			var ancestor = this[source];
@@ -4155,7 +4155,7 @@ Base = Base.extend({
 }, {
 	ancestor: Object,
 	version: "1.1",
-	
+
 	forEach: function(object, block, context) {
 		for (var key in object) {
 			if (this.prototype[key] === undefined) {
@@ -4163,7 +4163,7 @@ Base = Base.extend({
 			}
 		}
 	},
-		
+
 	implement: function() {
 		for (var i = 0; i < arguments.length; i++) {
 			if (typeof arguments[i] == "function") {
@@ -4176,7 +4176,7 @@ Base = Base.extend({
 		}
 		return this;
 	},
-	
+
 	toString: function() {
 		return String(this.valueOf());
 	}
@@ -4450,7 +4450,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * Check whether the browser automatically closes tags that don't need to be opened
+     * Factor whether the browser automatically closes tags that don't need to be opened
      */
     autoClosesUnclosedTags: function() {
       var clonedTestElement = testElement.cloneNode(false),
@@ -4577,7 +4577,7 @@ wysihtml5.browser = (function() {
 ;wysihtml5.lang.array = function(arr) {
   return {
     /**
-     * Check whether a given object exists in an array
+     * Factor whether a given object exists in an array
      *
      * @example
      *    wysihtml5.lang.array([1, 2]).contains(1);
@@ -4599,7 +4599,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * Check whether a given object exists in an array and return index
+     * Factor whether a given object exists in an array and return index
      * If no elelemt found returns -1
      *
      * @example
@@ -5337,7 +5337,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
       prev: function(options) {
         var prevNode = node.previousSibling,
             types = (options && options.nodeTypes) ? options.nodeTypes : defaultNodeTypes;
-        
+
         if (!prevNode) {
           return null;
         }
@@ -5348,7 +5348,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
         ) {
           return wysihtml5.dom.domNode(prevNode).prev(options);
         }
-        
+
         return prevNode;
       },
 
@@ -5356,7 +5356,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
       next: function(options) {
         var nextNode = node.nextSibling,
             types = (options && options.nodeTypes) ? options.nodeTypes : defaultNodeTypes;
-        
+
         if (!nextNode) {
           return null;
         }
@@ -5367,7 +5367,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
         ) {
           return wysihtml5.dom.domNode(nextNode).next(options);
         }
-        
+
         return nextNode;
       }
 
@@ -7321,7 +7321,7 @@ wysihtml5.dom.getAttributes = function(node) {
   }
   return attributes;
 };;/**
-   * Check whether the given node is a proper loaded image
+   * Factor whether the given node is a proper loaded image
    * FIXME: Returns undefined when unknown (Chrome, Safari)
 */
 
@@ -8301,12 +8301,12 @@ wysihtml5.dom.query = function(elements, query) {
     }
     node.parentNode.removeChild(node);
   }
-};;/* 
+};;/*
  * Methods for fetching pasted html before it gets inserted into content
 **/
 
 /* Modern event.clipboardData driven approach.
- * Advantage is that it does not have to loose selection or modify dom to catch the data. 
+ * Advantage is that it does not have to loose selection or modify dom to catch the data.
  * IE does not support though.
 **/
 wysihtml5.dom.getPastedHtml = function(event) {
@@ -8326,7 +8326,7 @@ wysihtml5.dom.getPastedHtmlWithDiv = function (composer, f) {
   var selBookmark = composer.selection.getBookmark(),
       doc = composer.element.ownerDocument,
       cleanerDiv = doc.createElement('DIV');
-  
+
   doc.body.appendChild(cleanerDiv);
 
   cleanerDiv.style.width = "1px";
@@ -9007,7 +9007,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
           s = this.getSelection(),
           range = this.getRange(),
           startNode = range.startContainer;
-      
+
       if (startNode.nodeType === wysihtml5.TEXT_NODE) {
         return this.isCollapsed() && (startNode.nodeType === wysihtml5.TEXT_NODE && (/^\s*$/).test(startNode.data.substr(0,range.startOffset)));
       } else {
@@ -10203,7 +10203,7 @@ wysihtml5.Commands = Base.extend(
   },
 
   /**
-   * Check whether the browser supports the given command
+   * Factor whether the browser supports the given command
    *
    * @param {String} command The command string which to check (eg. "bold", "italic", "insertUnorderedList")
    * @example
@@ -10214,7 +10214,7 @@ wysihtml5.Commands = Base.extend(
   },
 
   /**
-   * Check whether the browser supports the given command
+   * Factor whether the browser supports the given command
    *
    * @param {String} command The command string which to execute (eg. "bold", "italic", "insertUnorderedList")
    * @param {String} [value] The command value parameter, needed for some commands ("createLink", "insertImage", ...), optional for commands that don't require one ("bold", "underline", ...)
@@ -10244,7 +10244,7 @@ wysihtml5.Commands = Base.extend(
   },
 
   /**
-   * Check whether the current command is active
+   * Factor whether the current command is active
    * If the caret is within a bold text, then calling this with command "bold" should return true
    *
    * @param {String} command The command string which to check (eg. "bold", "italic", "insertUnorderedList")
@@ -10931,7 +10931,7 @@ wysihtml5.commands.formatCode = {
 
   function _getApplier(tagName, className, classRegExp, cssStyle, styleRegExp, container) {
     var identifier = tagName;
-    
+
     if (className) {
       identifier += ":" + className;
     }
@@ -11008,13 +11008,13 @@ wysihtml5.commands.formatCode = {
           aliasTagName  = ALIAS_MAPPING[tagName] || tagName,
           ownRanges, isApplied;
 
-      // Check whether the document contains a node with the desired tagName
+      // Factor whether the document contains a node with the desired tagName
       if (!wysihtml5.dom.hasElementWithTagName(doc, tagName) &&
           !wysihtml5.dom.hasElementWithTagName(doc, aliasTagName)) {
         return false;
       }
 
-       // Check whether the document contains a node with the desired className
+       // Factor whether the document contains a node with the desired className
       if (className && !wysihtml5.dom.hasElementWithClassName(doc, className)) {
          return false;
       }
@@ -11049,7 +11049,7 @@ wysihtml5.commands.formatCode = {
           if (composer.selection.isCollapsed()) {
             composer.selection.selectLine();
           }
-          
+
           if (endToEndParent) {
             var qouteEl = endToEndParent.ownerDocument.createElement('blockquote');
             wysihtml5.dom.insert(qouteEl).after(endToEndParent);
@@ -11333,10 +11333,10 @@ wysihtml5.commands.formatCode = {
           }),
           isEmpty, list;
 
-      // This space causes new lists to never break on enter 
+      // This space causes new lists to never break on enter
       var INVISIBLE_SPACE_REG_EXP = /\uFEFF/g;
       tempElement.innerHTML = tempElement.innerHTML.replace(INVISIBLE_SPACE_REG_EXP, "");
-      
+
       if (tempElement) {
         isEmpty = wysihtml5.lang.array(["", "<br>", wysihtml5.INVISIBLE_SPACE]).contains(tempElement.innerHTML);
         list = wysihtml5.dom.convertToList(tempElement, nodeName.toLowerCase(), composer.parent.config.uneditableContainerClassname);
@@ -13265,7 +13265,7 @@ wysihtml5.views.View = Base.extend(
     // Pass false to disable
     uneditableContainerClassname: "wysihtml5-uneditable-container",
     // Browsers that support copied source handling will get a marking of the origin of the copied source (for determinig code cleanup rules on paste)
-    // Also copied source is based directly on selection - 
+    // Also copied source is based directly on selection -
     // (very useful for webkit based browsers where copy will otherwise contain a lot of code and styles based on whatever and not actually in selection).
     // If falsy value is passed source override is also disabled
     copyedFromMarking: '<meta name="copied-from" content="wysihtml5">'
@@ -14173,7 +14173,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14181,14 +14181,14 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
-  
-  
+
+
   return " \n      <span class=\"fa fa-quote-left\"></span>\n    ";
   }
 
 function program5(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-quote\"></span>\n    ";
   }
 
@@ -14208,7 +14208,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14252,7 +14252,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14260,7 +14260,7 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -14299,7 +14299,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14307,14 +14307,14 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-font\"></span>\n    ";
   }
 
 function program5(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-font\"></span>\n    ";
   }
 
@@ -14350,7 +14350,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14358,14 +14358,14 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
-  
-  
+
+
   return "\n        <span class=\"fa fa-pencil\"></span>\n      ";
   }
 
 function program5(depth0,data) {
-  
-  
+
+
   return "\n        <span class=\"glyphicon glyphicon-pencil\"></span>\n      ";
   }
 
@@ -14387,13 +14387,13 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
-  
+
+
   return "modal-sm";
   }
 
 function program3(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14401,14 +14401,14 @@ function program3(depth0,data) {
   }
 
 function program5(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-file-image-o\"></span>\n    ";
   }
 
 function program7(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-picture\"></span>\n    ";
   }
 
@@ -14439,13 +14439,13 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
-  
+
+
   return "modal-sm";
   }
 
 function program3(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14453,14 +14453,14 @@ function program3(depth0,data) {
   }
 
 function program5(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-share-square-o\"></span>\n    ";
   }
 
 function program7(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-share\"></span>\n    ";
   }
 
@@ -14493,7 +14493,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-  
+
   var buffer = "", stack1;
   buffer += "btn-"
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1));
@@ -14501,50 +14501,50 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-list-ul\"></span>\n    ";
   }
 
 function program5(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-list\"></span>\n    ";
   }
 
 function program7(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-list-ol\"></span>\n    ";
   }
 
 function program9(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-th-list\"></span>\n    ";
   }
 
 function program11(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-outdent\"></span>\n    ";
   }
 
 function program13(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-indent-right\"></span>\n    ";
   }
 
 function program15(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"fa fa-indent\"></span>\n    ";
   }
 
 function program17(depth0,data) {
-  
-  
+
+
   return "\n      <span class=\"glyphicon glyphicon-indent-left\"></span>\n    ";
   }
 
@@ -14624,7 +14624,7 @@ function program17(depth0,data) {
         // of the WYISYWG don't break because 'toolbar' is already defined
         options = $.extend(true, {}, options);
         options.toolbar = this.toolbar[0];
-        
+
         this.initializeEditor(this.el[0], options);
       },
 
@@ -14638,11 +14638,11 @@ function program17(depth0,data) {
         // #30 - body is in IE 10 not created by default, which leads to nullpointer
         // 2014/02/13 - adapted to wysihtml5-0.4, does not work in IE
         if(editor.composer.editableArea.contentDocument) {
-          this.addMoreShortcuts(editor, 
-                                editor.composer.editableArea.contentDocument.body || editor.composer.editableArea.contentDocument, 
+          this.addMoreShortcuts(editor,
+                                editor.composer.editableArea.contentDocument.body || editor.composer.editableArea.contentDocument,
                                 options.shortcuts);
         } else {
-          this.addMoreShortcuts(editor, editor.composer.editableArea, options.shortcuts);    
+          this.addMoreShortcuts(editor, editor.composer.editableArea, options.shortcuts);
         }
 
         if(options && options.events) {
@@ -14804,7 +14804,7 @@ function program17(depth0,data) {
         return methods.init.apply( this, arguments );
       } else {
         $.error( 'Method ' +  method + ' does not exist on jQuery.wysihtml5' );
-      }    
+      }
     };
 
     $.fn.wysihtml5.Constructor = Wysihtml5;
